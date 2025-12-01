@@ -2,83 +2,138 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 
 export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/5">
-      {/* Background Image Overlay */}
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Full Background Image */}
       <div className="absolute inset-0 z-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-10"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80)',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=85)',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      </div>
+
+      {/* Animated Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 pt-32 pb-20 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            {t('trust.surveillance')}
-          </div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="text-white">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
+              </span>
+              {t('trust.surveillance')}
+            </div>
 
-          {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-            <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+            {/* Main Heading */}
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
               {t('hero.title')}
-            </span>
-          </h1>
+            </h1>
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-            {t('hero.subtitle')}
-          </p>
+            {/* Subtitle */}
+            <p className="text-xl md:text-2xl text-white/80 mb-10 max-w-xl animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
+              {t('hero.subtitle')}
+            </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all group"
-            >
-              {t('hero.cta.units')}
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-6 text-lg rounded-xl transition-all"
-            >
-              {t('hero.cta.price')}
-            </Button>
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+              <Button 
+                size="lg" 
+                className="bg-accent hover:bg-accent/90 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all group"
+              >
+                {t('hero.cta.units')}
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-2 border-white/30 text-white hover:bg-white hover:text-black px-8 py-6 text-lg rounded-xl transition-all backdrop-blur-sm"
+              >
+                <Play className="mr-2 h-5 w-5" />
+                {t('hero.cta.price')}
+              </Button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-4 gap-6 mt-16 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-1">500+</div>
+                <div className="text-sm text-white/60">Korisnika</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-1">24/7</div>
+                <div className="text-sm text-white/60">Pristup</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">4.9★</div>
+                <div className="text-sm text-white/60">Ocjena</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-1">100%</div>
+                <div className="text-sm text-white/60">Sigurno</div>
+              </div>
+            </div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">500+</div>
-              <div className="text-sm text-muted-foreground">Korisnika</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">24/7</div>
-              <div className="text-sm text-muted-foreground">Pristup</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">4.9★</div>
-              <div className="text-sm text-muted-foreground">Ocjena</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">100%</div>
-              <div className="text-sm text-muted-foreground">Sigurno</div>
+          {/* Right - Feature Images */}
+          <div className="hidden lg:block relative animate-in fade-in slide-in-from-right-8 duration-1000 delay-300">
+            <div className="relative">
+              {/* Main Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
+                <img 
+                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+                  alt="Storage Unit"
+                  className="w-full h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              </div>
+
+              {/* Floating Card 1 */}
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-2xl animate-in fade-in slide-in-from-left-4 duration-700 delay-500">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                    <svg className="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-bold text-gray-900">Klimatizirano</div>
+                    <div className="text-sm text-gray-500">18-22°C</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Card 2 */}
+              <div className="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-2xl animate-in fade-in slide-in-from-right-4 duration-700 delay-700">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-bold text-gray-900">HD Nadzor</div>
+                    <div className="text-sm text-gray-500">24/7 Live</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -86,8 +141,8 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-primary rounded-full animate-pulse" />
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+          <div className="w-1 h-3 bg-white rounded-full animate-pulse" />
         </div>
       </div>
     </section>

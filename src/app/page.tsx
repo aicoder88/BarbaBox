@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import TrustBar from '@/components/TrustBar';
 import Process from '@/components/Process';
+import SizeCalculator from '@/components/SizeCalculator';
 import Pricing from '@/components/Pricing';
 import CustomerSegments from '@/components/CustomerSegments';
 import Security from '@/components/Security';
@@ -18,6 +19,7 @@ export default function Page() {
         <Hero />
         <TrustBar />
         <Process />
+        <SizeCalculator />
         <Pricing />
         <CustomerSegments />
         <Security />
