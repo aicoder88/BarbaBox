@@ -65,18 +65,22 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 w-full sm:w-auto">
               <Button
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all group w-full sm:w-auto"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 h-auto text-lg rounded-xl shadow-lg hover:shadow-xl transition-all group w-full sm:w-auto whitespace-normal text-center"
               >
-                {t('hero.cta.primary')}
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <span className="flex items-center justify-center gap-2">
+                  {t('hero.cta.primary')}
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform shrink-0" />
+                </span>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white hover:text-black px-6 py-6 text-lg rounded-xl transition-all backdrop-blur-sm group w-full sm:w-auto"
+                className="border-2 border-white/50 bg-black/20 text-white hover:bg-white hover:text-black px-8 py-6 h-auto text-lg rounded-xl transition-all backdrop-blur-sm group w-full sm:w-auto whitespace-normal text-center"
               >
-                <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                {t('hero.cta.secondary')}: {t('hero.phone')}
+                <span className="flex items-center justify-center gap-2">
+                  <Play className="h-5 w-5 group-hover:scale-110 transition-transform shrink-0" />
+                  <span>{t('hero.cta.secondary')}: <span className="font-bold">{t('hero.phone')}</span></span>
+                </span>
               </Button>
             </div>
 

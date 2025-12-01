@@ -174,7 +174,7 @@ const translations = {
     'footer.brand': 'BarbaBox',
     'footer.tagline': 'Obiteljski posao. Zagrebački do srži.',
     'footer.quote': '"Ovo nije samo posao — ovo je obećanje da ćemo se brinuti o vašim stvarima kao da su naše."',
-    'footer.founder': '— Barbara Krečak, osnivačica',
+    'footer.founder': '— Barbera K, osnivačica',
     'footer.established': 'Dio Zagreb zajednice od 2020',
     'footer.rights': 'Sva prava pridržana',
 
@@ -343,7 +343,7 @@ const translations = {
     'footer.brand': 'BarbaBox',
     'footer.tagline': 'Family business. Zagreb through and through.',
     'footer.quote': '"This isn\'t just a business — it\'s a promise that we\'ll care for your belongings as if they were our own."',
-    'footer.founder': '— Barbara Krečak, founder',
+    'footer.founder': '— Barbera K, founder',
     'footer.established': 'Part of Zagreb community since 2020',
     'footer.rights': 'All rights reserved',
 

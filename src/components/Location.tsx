@@ -28,20 +28,11 @@ export default function Location() {
           >
             <Card className="overflow-hidden border-2 hover:border-primary/30 transition-colors h-full">
               <div className="relative h-96 bg-gradient-to-br from-primary/10 to-accent/10 group">
-                {/* Placeholder for Google Maps */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center group-hover:scale-105 transition-transform duration-300">
-                    <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-                    <p className="text-lg font-semibold text-muted-foreground">
-                      {t('location.address.street')}<br />
-                      {t('location.address.note')}
-                    </p>
-                    <p className="text-sm text-primary mt-4 font-bold">
-                      {t('language') === 'hr' ? 'Kliknite za navigaciju' : 'Click for navigation'}
-                    </p>
-                  </div>
-                </div>
-                {/* In production, replace with actual Google Maps embed */}
+                <img
+                  src="/images/map-avenue-mall.png"
+                  alt="Map Location - Avenue Mall Zagreb"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
             </Card>
           </a>

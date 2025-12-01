@@ -7,7 +7,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
 export const metadata: Metadata = {
-  title: "ZagrebStorage - Sigurno Skladištenje u Zagrebu",
+  title: "BarbaBox",
   description: "Vaš prostor. Vaš mir. Vaša sloboda. Sigurno skladištenje u Zagrebu s pristupom 24/7.",
 };
 
