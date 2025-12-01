@@ -9,15 +9,21 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-br from-primary via-primary to-primary/90 text-white">
       <div className="container mx-auto px-4 py-16">
+        {/* Founder Quote Section */}
+        <div className="max-w-3xl mx-auto text-center mb-12 pb-12 border-b border-white/20">
+          <div className="text-3xl font-bold mb-4">{t('footer.brand')}</div>
+          <p className="text-lg text-white/90 mb-2">{t('footer.tagline')}</p>
+          <p className="text-white/70 italic mb-2">{t('footer.quote')}</p>
+          <p className="text-white/60 text-sm">{t('footer.founder')}</p>
+          <p className="text-white/60 text-sm mt-4">{t('footer.established')}</p>
+        </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div>
             <div className="text-2xl font-bold mb-4">
-              Zagreb<span className="text-accent">Storage</span>
+              Barba<span className="text-accent">Box</span>
             </div>
-            <p className="text-white/80 mb-4 leading-relaxed">
-              {t('footer.tagline')}
-            </p>
             <div className="flex gap-3">
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
                 <Facebook className="h-5 w-5" />
@@ -65,11 +71,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-5 w-5 flex-shrink-0" />
-                <span className="text-white/80 text-sm">+385 1 234 5678</span>
+                <span className="text-white/80 text-sm">01 234 5678</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-5 w-5 flex-shrink-0" />
-                <span className="text-white/80 text-sm">info@zagrebstorage.hr</span>
+                <span className="text-white/80 text-sm">info@barbabox.hr</span>
               </li>
             </ul>
           </div>
@@ -79,7 +85,7 @@ export default function Footer() {
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/60 text-sm">
-              © 2024 ZagrebStorage. {t('footer.rights')}
+              © 2024 BarbaBox. {t('footer.rights')}
             </p>
             <div className="flex gap-6 text-sm text-white/60">
               <a href="#" className="hover:text-white transition-colors">Privatnost</a>

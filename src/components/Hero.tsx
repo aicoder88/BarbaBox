@@ -11,10 +11,10 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Full Background Image */}
       <div className="absolute inset-0 z-0">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=85)',
+            backgroundImage: 'url(/images/hero.png)',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
@@ -32,13 +32,18 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="text-white">
+            {/* Promo Banner */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-accent to-accent/80 text-white text-sm font-bold mb-4 animate-in fade-in slide-in-from-bottom-4 duration-700 shadow-lg">
+              {t('hero.promo')}
+            </div>
+
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
               </span>
-              {t('trust.surveillance')}
+              {t('hero.badge')}
             </div>
 
             {/* Main Heading */}
@@ -47,46 +52,51 @@ export default function Hero() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-white/80 mb-10 max-w-xl animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
+            <p className="text-xl md:text-2xl text-white/90 mb-4 max-w-xl font-semibold animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
               {t('hero.subtitle')}
             </p>
 
+            {/* Features */}
+            <p className="text-lg text-white/70 mb-10 max-w-xl animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
+              {t('hero.features')}
+            </p>
+
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-              <Button 
-                size="lg" 
-                className="bg-accent hover:bg-accent/90 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all group"
+            <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 w-full sm:w-auto">
+              <Button
+                size="lg"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all group w-full sm:w-auto"
               >
-                {t('hero.cta.units')}
+                {t('hero.cta.primary')}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white hover:text-black px-8 py-6 text-lg rounded-xl transition-all backdrop-blur-sm"
+                className="border-2 border-white/30 text-white hover:bg-white hover:text-black px-6 py-6 text-lg rounded-xl transition-all backdrop-blur-sm group w-full sm:w-auto"
               >
-                <Play className="mr-2 h-5 w-5" />
-                {t('hero.cta.price')}
+                <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                {t('hero.cta.secondary')}: {t('hero.phone')}
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-4 gap-6 mt-16 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-white mb-1">500+</div>
-                <div className="text-sm text-white/60">Korisnika</div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-1">547</div>
+                <div className="text-sm text-white/60">{t('language') === 'hr' ? 'Obitelji' : 'Families'}</div>
               </div>
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-white mb-1">24/7</div>
-                <div className="text-sm text-white/60">Pristup</div>
+                <div className="text-sm text-white/60">{t('language') === 'hr' ? 'Pristup' : 'Access'}</div>
               </div>
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-accent mb-1">4.9★</div>
-                <div className="text-sm text-white/60">Ocjena</div>
+                <div className="text-sm text-white/60">{t('language') === 'hr' ? '128 recenzija' : '128 reviews'}</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-white mb-1">100%</div>
-                <div className="text-sm text-white/60">Sigurno</div>
+                <div className="text-3xl md:text-4xl font-bold text-green-400 mb-1">0</div>
+                <div className="text-sm text-white/60">{t('language') === 'hr' ? 'Provala od 2020' : 'Break-ins since 2020'}</div>
               </div>
             </div>
           </div>
@@ -96,7 +106,7 @@ export default function Hero() {
             <div className="relative">
               {/* Main Image */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
-                <img 
+                <img
                   src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
                   alt="Storage Unit"
                   className="w-full h-80 object-cover"

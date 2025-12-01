@@ -11,17 +11,20 @@ export default function Process() {
     {
       title: t('process.step1.title'),
       description: t('process.step1.desc'),
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',
+      cta: t('process.step1.cta'),
+      image: '/images/process-booking.png',
     },
     {
       title: t('process.step2.title'),
       description: t('process.step2.desc'),
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80',
+      cta: t('process.step2.cta'),
+      image: '/images/process-packing.png',
     },
     {
       title: t('process.step3.title'),
       description: t('process.step3.desc'),
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+      cta: t('process.step3.cta'),
+      image: '/images/process-moving.png',
     },
   ];
 
@@ -44,7 +47,7 @@ export default function Process() {
 
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">
-                  <div 
+                  <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                     style={{ backgroundImage: `url(${step.image})` }}
                   />
@@ -54,7 +57,8 @@ export default function Process() {
                 {/* Content */}
                 <div className="p-6 relative">
                   <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                  <p className="text-muted-foreground leading-relaxed mb-3">{step.description}</p>
+                  <p className="text-sm text-primary font-medium">{step.cta}</p>
                 </div>
               </Card>
 

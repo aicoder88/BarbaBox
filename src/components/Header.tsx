@@ -16,7 +16,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <div className="text-2xl font-bold text-primary">
-              Zagreb<span className="text-accent">Storage</span>
+              Barba<span className="text-accent">Box</span>
             </div>
           </div>
 
