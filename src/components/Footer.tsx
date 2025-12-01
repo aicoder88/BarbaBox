@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { contactConfig } from '@/lib/config';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -25,13 +26,13 @@ export default function Footer() {
               Barba<span className="text-accent">Box</span>
             </div>
             <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+              <a href={contactConfig.socials.facebook} className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+              <a href={contactConfig.socials.instagram} className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+              <a href={contactConfig.socials.linkedin} className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
@@ -67,15 +68,15 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5" />
-                <span className="text-white/80 text-sm">Ulica Skladišta 123, 10000 Zagreb</span>
+                <span className="text-white/80 text-sm">{contactConfig.address}</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-5 w-5 flex-shrink-0" />
-                <span className="text-white/80 text-sm">01 234 5678</span>
+                <span className="text-white/80 text-sm">{contactConfig.phone}</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-5 w-5 flex-shrink-0" />
-                <span className="text-white/80 text-sm">info@barbabox.hr</span>
+                <span className="text-white/80 text-sm">{contactConfig.email}</span>
               </li>
             </ul>
           </div>

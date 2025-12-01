@@ -1,8 +1,10 @@
 "use client";
 
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
+import { contactConfig } from '@/lib/config';
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -11,11 +13,13 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Full Background Image */}
       <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(/images/hero.png)',
-          }}
+        <Image
+          src="/images/hero.png"
+          alt="BarbaBox Storage Facility"
+          fill
+          priority
+          className="object-cover"
+          quality={90}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -79,7 +83,7 @@ export default function Hero() {
               >
                 <span className="flex items-center justify-center gap-2">
                   <Play className="h-5 w-5 group-hover:scale-110 transition-transform shrink-0" />
-                  <span>{t('hero.cta.secondary')}: <span className="font-bold">{t('hero.phone')}</span></span>
+                  <span>{t('hero.cta.secondary')}: <span className="font-bold">{contactConfig.phone}</span></span>
                 </span>
               </Button>
             </div>
@@ -109,11 +113,13 @@ export default function Hero() {
           <div className="hidden lg:block relative animate-in fade-in slide-in-from-right-8 duration-1000 delay-300">
             <div className="relative">
               {/* Main Image */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
-                <img
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 h-80">
+                <Image
                   src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
                   alt="Storage Unit"
-                  className="w-full h-80 object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </div>

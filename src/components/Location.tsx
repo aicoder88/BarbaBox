@@ -27,7 +27,7 @@ export default function Location() {
             className="block"
           >
             <Card className="overflow-hidden border-2 hover:border-primary/30 transition-colors h-full">
-              <div className="relative h-96 bg-gradient-to-br from-primary/10 to-accent/10 group">
+              <div className="relative h-80 lg:h-64 bg-gradient-to-br from-primary/10 to-accent/10 group">
                 <img
                   src="/images/map-avenue-mall.png"
                   alt="Map Location - Avenue Mall Zagreb"
