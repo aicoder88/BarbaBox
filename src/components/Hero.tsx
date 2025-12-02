@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -8,6 +9,15 @@ import { contactConfig } from '@/lib/config';
 
 export default function Hero() {
   const { t } = useLanguage();
+  const [currentTime, setCurrentTime] = useState('--:--:--');
+
+  useEffect(() => {
+    setCurrentTime(new Date().toLocaleTimeString('hr-HR'));
+    const interval = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString('hr-HR'));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -139,19 +149,45 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Floating Card 2 */}
-              <div className="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-2xl animate-in fade-in slide-in-from-right-4 duration-700 delay-700">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              {/* Live Camera Feed Card */}
+              <div className="absolute -top-4 -right-4 bg-gray-900 rounded-2xl overflow-hidden shadow-2xl animate-in fade-in slide-in-from-right-4 duration-700 delay-700 w-48">
+                {/* Camera Feed Header */}
+                <div className="bg-gray-800 px-3 py-1.5 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                    <span className="text-[10px] font-bold text-red-400 uppercase tracking-wider">Live</span>
+                  </div>
+                  <span className="text-[10px] text-gray-400 font-mono">CAM-01</span>
+                </div>
+                {/* Camera Feed Image */}
+                <div className="relative h-24 overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" 
+                    alt="Live camera feed"
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Scanline Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent animate-pulse opacity-30" />
+                  {/* Corner Brackets */}
+                  <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-green-400/70" />
+                  <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-green-400/70" />
+                  <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-green-400/70" />
+                  <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-green-400/70" />
+                  {/* Timestamp */}
+                  <div className="absolute bottom-1 left-2 text-[9px] font-mono text-green-400/90 bg-black/50 px-1 rounded">
+                    {currentTime}
+                  </div>
+                </div>
+                {/* Camera Feed Footer */}
+                <div className="bg-gray-800 px-3 py-1.5 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
+                    <span className="text-[10px] text-gray-300 font-semibold">HD Nadzor</span>
                   </div>
-                  <div>
-                    <div className="font-bold text-gray-900">HD Nadzor</div>
-                    <div className="text-sm text-gray-500">24/7 Live</div>
-                  </div>
+                  <span className="text-[10px] text-green-400 font-bold">24/7</span>
                 </div>
               </div>
             </div>
